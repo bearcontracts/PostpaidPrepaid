@@ -1,6 +1,6 @@
 package PostpaidPrepaid;
 
-public class Postpaid extends Korisnik {
+public class Postpaid extends User {
 
         private static final double PRETPLATA = 150;
         private static final double RAZGOVORUMREZI = 2.8;
@@ -18,14 +18,14 @@ public class Postpaid extends Korisnik {
             super(postpaid.getBroj());
             racun = postpaid.racun;
         }
-        public void azuriraj_racun_razgovor (Razgovor razgovor)
+        public void azuriraj_racun_razgovor (Call call)
         {
             double cena = NACIONALNIRAZGOVORI;
-            if (razgovor.getBroj().startsWith("064") || razgovor.getBroj().startsWith("065")
-                    || razgovor.getBroj().startsWith("066"))
+            if (call.getBroj().startsWith("064") || call.getBroj().startsWith("065")
+                    || call.getBroj().startsWith("066"))
                 cena = RAZGOVORUMREZI;
-            double cena_razgovora = (CONNECTIONFEE + (razgovor.getVreme().getSat() * 3600
-                    + razgovor.getVreme().getMinut() * 60 + razgovor.getVreme().getSekunda())
+            double cena_razgovora = (CONNECTIONFEE + (call.getVreme().getSat() * 3600
+                    + call.getVreme().getMinut() * 60 + call.getVreme().getSekunda())
                     * cena / 60)
                     * (100 + PDV) / 100.0;
             racun += cena_razgovora;

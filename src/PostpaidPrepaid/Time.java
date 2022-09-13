@@ -1,17 +1,17 @@
 package PostpaidPrepaid;
 
-public class Vreme {
+public class Time {
     private int sat;
     private  int minut;
     private int sekunda;
 
-    public Vreme(int sat, int minut, int sekunda) {
+    public Time(int sat, int minut, int sekunda) {
         this.sat = sat;
         this.minut = minut;
         this.sekunda = sekunda;
     }
 
-    public Vreme(Vreme v){
+    public Time(Time v){
         this(v.sat,v.minut,v.sekunda);
     }
 
@@ -27,11 +27,11 @@ public class Vreme {
         return sekunda;
     }
 
-    public Vreme sledeci_minut(){
+    public Time sledeci_minut(){
         if(minut + 1 < 59)
-            return new Vreme(sat,minut + 1 , 0);
+            return new Time(sat,minut + 1 , 0);
         else
-            return new Vreme(sat + 1, 0, 0);
+            return new Time(sat + 1, 0, 0);
     }
 
     public static boolean validan(int sat, int minut,int sekunda){
@@ -40,7 +40,7 @@ public class Vreme {
 
     @Override
     public String toString() {
-        return "PostpaidPrepaid.Vreme{" +
+        return "PostpaidPrepaid.Time{" +
                 "sat=" + sat +
                 ", minut=" + minut +
                 ", sekunda=" + sekunda +

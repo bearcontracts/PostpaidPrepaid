@@ -1,15 +1,15 @@
 package PostpaidPrepaid;
 
-public abstract class Korisnik {
+public abstract class User {
 
     private String broj;
     static final  int PDV = 18;
 
-    public Korisnik(String broj) {
+    public User(String broj) {
         this.broj = broj;
     }
 
-    public Korisnik(Korisnik k){
+    public User(User k){
         this(k.broj);
     }
 
@@ -17,7 +17,7 @@ public abstract class Korisnik {
         return broj;
     }
 
-    public abstract void azuriraj_racun_razgovor(Razgovor razgovor);
+    public abstract void azuriraj_racun_razgovor(Call call);
     public abstract void azuriraj_racun_SMS();
 
     public static boolean validan(String broj){
@@ -32,7 +32,7 @@ public abstract class Korisnik {
 
     @Override
     public String toString() {
-        return "PostpaidPrepaid.Korisnik{" +
+        return "PostpaidPrepaid.User{" +
                 "broj='" + broj + '\'' +
                 '}';
     }
